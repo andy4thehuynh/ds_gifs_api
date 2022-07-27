@@ -18,9 +18,6 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-# Ignore tool-versions, only ASDF CLI needs to know
-.tool-versions
-
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
@@ -32,3 +29,6 @@
 !.env.development
 !.env.test
 /vendor/bundle
+
+# Ignore tool-versions, only ASDF CLI needs to know
+.tool-versions
