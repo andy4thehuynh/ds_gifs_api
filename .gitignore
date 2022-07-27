@@ -18,6 +18,8 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
+# Ignore tool-versions, only ASDF CLI needs to know
+.tool-versions
 
 /public/assets
 
