@@ -13,6 +13,14 @@ jobs:
             ./vendor/bundle
             ./node_modules
           key: ${{ runner.os }}-deploy-${{ hashFiles('Gemfile.lock', 'yarn.lock') }}
+      - name: AWS SSM to .env
+        uses: deptno/action-aws-ssm-to-dotenv@v1.3.2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+        with:
+          ssm-path: /ds_gifs_api/production/env
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -25,3 +33,4 @@ jobs:
       - name: Deploy
         run: |
           ./bin/deploy
+
